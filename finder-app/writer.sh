@@ -4,7 +4,10 @@ if [ "$#" -lt 2 ]; then
     exit 1
 fi
 
-writefile=$1
-writestr=$2
+WRITE_FILE=$1
+WRITE_STR=$2
 
-echo "$writestr" > "$writefile"
+WRITE_FILE_DIR=$(dirname $WRITE_FILE)
+mkdir -p "$WRITE_FILE_DIR"
+
+echo "$WRITE_STR" > "$WRITE_FILE"
